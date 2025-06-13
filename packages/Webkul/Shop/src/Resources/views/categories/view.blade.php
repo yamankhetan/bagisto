@@ -42,16 +42,16 @@
 
 
     <!-- Category Header -->
-    <div class="container px-4 sm:px-6 lg:px-8 mt-8 md:mt-12 text-center">
+    <div class="container px-4 sm:px-6 lg:px-8 mt-8 md:mt-12 text-left">
         {!! view_render_event('bagisto.shop.categories.view.description.before') !!}
 
-        <h1 class="text-3xl md:text-4xl font-fraunces text-zylver-olive-green">
+        <h1 class="text-4xl md:text-5xl font-fraunces text-zylver-olive-green">
             {{ $category->name }}
         </h1>
 
         @if (in_array($category->display_mode, [null, 'description_only', 'products_and_description']))
             @if ($category->description)
-                <div class="prose max-w-3xl mx-auto mt-4 font-lato text-zylver-olive-green/80">
+                <div class="prose max-w-3xl mt-4 font-lato text-zylver-olive-green/80">
                     {!! $category->description !!}
                 </div>
             @endif
@@ -74,12 +74,12 @@
             id="v-category-template"
         >
             <div class="container px-4 sm:px-6 lg:px-8">
-                <div class="flex items-start gap-x-8 md:mt-12">
+                <div class="flex flex-col md:flex-row items-start gap-x-8 md:mt-12">
                     <!-- Product Listing Filters -->
                     @include('shop::categories.filters')
 
                     <!-- Product Listing Container -->
-                    <div class="flex-1">
+                    <div class="flex-1 w-full">
                         <!-- Desktop Product Listing Toolbar -->
                         <div class="max-md:hidden">
                             @include('shop::categories.toolbar')

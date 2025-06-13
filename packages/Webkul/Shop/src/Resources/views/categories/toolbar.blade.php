@@ -23,7 +23,7 @@
                 >
                     <x-slot:toggle>
                         <!-- Dropdown Toggler -->
-                        <button class="flex items-center gap-x-2 font-lato text-sm font-medium text-zylver-olive-green/80 hover:text-zylver-olive-green">
+                        <button class="flex items-center gap-x-1.5 rounded-md border border-transparent px-3 py-1.5 font-lato text-sm font-medium text-zylver-olive-green/80 hover:text-zylver-olive-green hover:bg-zylver-cream/70 focus:outline-none focus:ring-2 focus:ring-zylver-gold/50 focus:border-zylver-gold/50 transition-all duration-200">
                             <span>@{{ sortLabel ?? "@lang('shop::app.products.sort-by.title')" }}</span>
                             <span class="icon-arrow-down text-2xl"></span>
                         </button>
@@ -51,7 +51,7 @@
                     <x-shop::dropdown position="bottom-right">
                         <x-slot:toggle>
                             <!-- Dropdown Toggler -->
-                            <button class="flex items-center gap-x-2 font-lato text-sm font-medium text-zylver-olive-green/80 hover:text-zylver-olive-green">
+                            <button class="flex items-center gap-x-1.5 rounded-md border border-transparent px-3 py-1.5 font-lato text-sm font-medium text-zylver-olive-green/80 hover:text-zylver-olive-green hover:bg-zylver-cream/70 focus:outline-none focus:ring-2 focus:ring-zylver-gold/50 focus:border-zylver-gold/50 transition-all duration-200">
                                 <span>@{{ filters.applied.limit ?? "@lang('shop::app.categories.toolbar.show')" }}</span>
                                 <span class="icon-arrow-down text-2xl"></span>
                             </button>
@@ -72,7 +72,7 @@
                     <!-- Listing Mode Switcher -->
                     <div class="flex items-center gap-x-4">
                         <span
-                            class="cursor-pointer text-2xl text-zylver-olive-green/60 hover:text-zylver-olive-green"
+                            class="cursor-pointer rounded-md p-1.5 text-2xl text-zylver-olive-green/60 hover:text-zylver-olive-green hover:bg-zylver-cream/70 focus:outline-none focus:ring-2 focus:ring-zylver-gold/50 transition-all duration-200"
                             role="button"
                             aria-label="@lang('shop::app.categories.toolbar.list')"
                             tabindex="0"
@@ -83,7 +83,7 @@
                         </span>
 
                         <span
-                            class="cursor-pointer text-2xl text-zylver-olive-green/60 hover:text-zylver-olive-green"
+                            class="cursor-pointer rounded-md p-1.5 text-2xl text-zylver-olive-green/60 hover:text-zylver-olive-green hover:bg-zylver-cream/70 focus:outline-none focus:ring-2 focus:ring-zylver-gold/50 transition-all duration-200"
                             role="button"
                             aria-label="@lang('shop::app.categories.toolbar.grid')"
                             tabindex="0"

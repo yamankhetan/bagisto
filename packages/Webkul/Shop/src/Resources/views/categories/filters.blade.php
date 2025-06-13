@@ -116,7 +116,7 @@
 
         <!-- Filters Container -->
         <template v-else>
-            <div class="panel-side journal-scroll grid max-h-[1320px] min-w-[342px] grid-cols-[1fr] overflow-y-auto overflow-x-hidden max-xl:min-w-[270px] md:max-w-[342px] md:ltr:pr-7 md:rtl:pl-7">
+            <div class="panel-side journal-scroll hidden md:grid md:w-1/4 lg:w-1/5 md:max-w-[342px] flex-shrink-0 max-h-[1320px] grid-cols-[1fr] overflow-y-auto overflow-x-hidden max-xl:min-w-[270px] md:ltr:pr-7 md:rtl:pl-7">
                 <!-- Filters Header Container -->
                 <div class="flex items-center justify-between border-b border-zylver-border-grey py-4 max-md:hidden">
                     <p class="font-fraunces text-2xl font-medium text-zylver-olive-green">
@@ -152,7 +152,7 @@
     >
         <x-shop::accordion class="last:border-b-0">
             <!-- Filter Item Header -->
-            <x-slot:header class="!py-5">
+            <x-slot:header class="py-4">
                 <div class="flex items-center justify-between">
                     <p class="font-fraunces text-xl text-zylver-olive-green">
                         @{{ filter.name }}
@@ -186,7 +186,7 @@
 
                             <input
                                 type="text"
-                                class="block w-full rounded-xl border border-zinc-200 px-11 py-3.5 text-sm font-medium text-gray-900 max-md:rounded-lg max-md:px-10 max-md:py-3 max-md:font-normal max-sm:text-xs"
+                                class="block w-full rounded-lg border border-zylver-border-grey px-11 py-2.5 text-sm font-medium text-zylver-olive-green placeholder-zylver-olive-green/60 focus:border-zylver-gold focus:ring-1 focus:ring-zylver-gold/50 transition-colors duration-200 max-md:rounded-md max-md:px-10 max-md:py-2 max-md:font-normal max-sm:text-xs"
                                 placeholder="@lang('shop::app.categories.filters.search.title')"
                                 v-model="searchQuery"
                                 v-debounce:500="searchOptions"
@@ -212,7 +212,7 @@
                                 :key="`${filter.id}_${option.id}`"
                                 v-for="(option, optionIndex) in options"
                             >
-                                <div class="flex select-none items-center gap-x-4 rounded hover:bg-gray-100 max-sm:gap-x-1 max-sm:!p-0 ltr:pl-2 rtl:pr-2">
+                                <div class="flex select-none items-center gap-x-3 rounded hover:bg-zylver-cream/60 max-sm:gap-x-1 max-sm:!p-0 ltr:pl-2 rtl:pr-2 py-1.5">
                                     <input
                                         type="checkbox"
                                         :id="`filter_${filter.id}_option_ ${option.id}`"
@@ -223,7 +223,7 @@
                                     />
 
                                     <label
-                                        class="icon-uncheck peer-checked:icon-check-box cursor-pointer text-2xl text-zylver-olive-green/60 peer-checked:text-zylver-gold"
+                                        class="icon-uncheck peer-checked:icon-check-box cursor-pointer text-xl text-zylver-olive-green/60 peer-checked:text-zylver-gold"
                                         role="checkbox"
                                         :for="`filter_${filter.id}_option_ ${option.id}`"
                                     >
@@ -288,7 +288,7 @@
                     <div class="flex justify-center pb-3" v-if="meta && meta.current_page < meta.last_page">
                         <button
                             type="button"
-                            class="rounded border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                            class="rounded-md border border-zylver-border-grey px-4 py-2 text-sm font-medium text-zylver-olive-green/80 hover:bg-zylver-cream/60 hover:border-zylver-olive-green/70 transition-colors duration-200"
                             @click="loadMoreOptions"
                             :disabled="isLoadingMore"
                         >
