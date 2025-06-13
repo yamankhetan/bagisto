@@ -108,19 +108,20 @@
 
                                 <!-- Empty Products Container -->
                                 <template v-else>
-                                    <div class="m-auto grid w-full place-content-center items-center justify-items-center py-32 text-center">
-                                        <img
-                                            class="max-md:h-[100px] max-md:w-[100px]"
-                                            src="{{ bagisto_asset('images/thank-you.png') }}"
-                                            alt="@lang('shop::app.categories.view.empty')"
-                                        />
-
-                                        <p
-                                            class="text-xl max-md:text-sm"
-                                            role="heading"
-                                        >
-                                            @lang('shop::app.categories.view.empty')
+                                    <div class="flex flex-col items-center justify-center w-full py-20 sm:py-24 text-center border border-dashed border-zylver-border-grey rounded-lg bg-zylver-cream/50">
+                                        <span class="icon-jewelry-box text-6xl text-zylver-olive-green/30 mb-4" aria-hidden="true"></span> <!-- Placeholder icon, e.g., a jewelry box or magnifying glass -->
+                                        <h3 class="font-fraunces text-2xl text-zylver-olive-green mb-2">
+                                            No Treasures Found
+                                        </h3>
+                                        <p class="font-lato text-sm text-zylver-olive-green/80 mb-6 max-w-xs mx-auto">
+                                            We couldn't find any products matching your current selection. Try adjusting your filters or explore other categories.
                                         </p>
+                                        <a
+                                            href="{{ route('shop.home.index') }}"
+                                            class="rounded-md bg-zylver-gold py-2.5 px-6 font-lato text-sm font-semibold uppercase tracking-wider text-zylver-olive-green shadow-sm transition-all duration-300 ease-in-out hover:bg-zylver-olive-green hover:text-zylver-cream hover:shadow-md focus:outline-none focus:ring-2 focus:ring-zylver-gold focus:ring-opacity-50"
+                                        >
+                                            Explore Our Collections
+                                        </a>
                                     </div>
                                 </template>
                             </template>
@@ -152,19 +153,20 @@
 
                                 <!-- Empty Products Container -->
                                 <template v-else>
-                                    <div class="m-auto grid w-full place-content-center items-center justify-items-center py-32 text-center">
-                                        <img
-                                            class="max-md:h-[100px] max-md:w-[100px]"
-                                            src="{{ bagisto_asset('images/thank-you.png') }}"
-                                            alt="@lang('shop::app.categories.view.empty')"
-                                        />
-
-                                        <p
-                                            class="text-xl max-md:text-sm"
-                                            role="heading"
-                                        >
-                                            @lang('shop::app.categories.view.empty')
+                                    <div class="flex flex-col items-center justify-center w-full py-20 sm:py-24 text-center border border-dashed border-zylver-border-grey rounded-lg bg-zylver-cream/50">
+                                        <span class="icon-jewelry-box text-6xl text-zylver-olive-green/30 mb-4" aria-hidden="true"></span> <!-- Placeholder icon, e.g., a jewelry box or magnifying glass -->
+                                        <h3 class="font-fraunces text-2xl text-zylver-olive-green mb-2">
+                                            No Treasures Found
+                                        </h3>
+                                        <p class="font-lato text-sm text-zylver-olive-green/80 mb-6 max-w-xs mx-auto">
+                                            We couldn't find any products matching your current selection. Try adjusting your filters or explore other categories.
                                         </p>
+                                        <a
+                                            href="{{ route('shop.home.index') }}"
+                                            class="rounded-md bg-zylver-gold py-2.5 px-6 font-lato text-sm font-semibold uppercase tracking-wider text-zylver-olive-green shadow-sm transition-all duration-300 ease-in-out hover:bg-zylver-olive-green hover:text-zylver-cream hover:shadow-md focus:outline-none focus:ring-2 focus:ring-zylver-gold focus:ring-opacity-50"
+                                        >
+                                            Explore Our Collections
+                                        </a>
                                     </div>
                                 </template>
                             </template>
@@ -172,32 +174,17 @@
                             {!! view_render_event('bagisto.shop.categories.view.grid.product_card.after') !!}
                         </div>
 
-                        {{--
-                        {!! view_render_event('bagisto.shop.categories.view.load_more_button.before') !!}
+                        <!-- Pagination -->
+                        <template v-if="!isLoading && products.length">
+                            {!! view_render_event('bagisto.shop.categories.view.pagination.before') !!}
 
-                        <!-- Load More Button -->
-                        <button
-                            class="secondary-button mx-auto mt-14 block w-max rounded-2xl px-11 py-3 text-center text-base max-md:rounded-lg max-sm:mt-6 max-sm:px-6 max-sm:py-1.5 max-sm:text-sm"
-                            @click="loadMoreProducts"
-                            v-if="links.next && ! loader"
-                        >
-                            @lang('shop::app.categories.view.load-more')
-                        </button>
-
-                        <button
-                            v-else-if="links.next"
-                            class="secondary-button mx-auto mt-14 block w-max rounded-2xl px-[74.5px] py-3.5 text-center text-base max-md:rounded-lg max-md:py-3 max-sm:mt-6 max-sm:px-[50.8px] max-sm:py-1.5"
-                        >
-                            <!-- Spinner -->
-                            <img
-                                class="h-5 w-5 animate-spin text-navyBlue"
-                                src="{{ bagisto_asset('images/spinner.svg') }}"
-                                alt="Loading"
+                            <x-shop::pagination
+                                ::meta="meta"
+                                on-page-change-method-name="handlePageChange"
                             />
-                        </button>
 
-                        {!! view_render_event('bagisto.shop.categories.view.grid.load_more_button.after') !!}
-                        --}}
+                            {!! view_render_event('bagisto.shop.categories.view.pagination.after') !!}
+                        </template>
                     </div>
                 </div>
             </div>
@@ -223,7 +210,9 @@
                             toolbar: {
                                 default: {},
 
-                                applied: {},
+                                applied: {
+                                    page: 1,
+                                },
                             },
 
                             filter: {},
@@ -232,6 +221,8 @@
                         products: [],
 
                         links: {},
+
+                        meta: {},
 
                         loader: false,
                     }
@@ -286,6 +277,8 @@
                                 this.products = response.data.data;
 
                                 this.links = response.data.links;
+
+                                this.meta = response.data.meta;
                             }).catch(error => {
                                 console.log(error);
                             });
@@ -308,6 +301,28 @@
                             }).catch(error => {
                                 console.log(error);
                             });
+                    },
+
+                    handlePageChange(page) {
+                        if (page === this.filters.toolbar.applied.page) {
+                            return; // Do nothing if already on the same page
+                        }
+                        this.isLoading = true; // Indicate loading for the new page
+                        this.filters.toolbar.applied.page = page;
+                        // The watcher on queryParams will automatically call getProducts()
+
+                        // Optional: Scroll to top after products are loaded.
+                        // This can be done in the getProducts().then() callback or by watching products.
+                        // For now, let's add a basic scroll to the top of the category container.
+                        this.$nextTick(() => {
+                            const categoryContainer = this.$el; // The root element of v-category
+                            if (categoryContainer) {
+                                window.scrollTo({
+                                    top: categoryContainer.offsetTop - 80, // Adjust offset as needed (e.g., for sticky header)
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
                     },
 
                     removeJsonEmptyValues(params) {
