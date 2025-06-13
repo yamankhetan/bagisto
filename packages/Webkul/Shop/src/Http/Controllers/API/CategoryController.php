@@ -68,7 +68,9 @@ class CategoryController extends APIController
 
         $category = $this->categoryRepository->findOrFail(request('category_id'));
 
-        if (empty($filterableAttributes = $category->filterableAttributes)) {
+        $filterableAttributes = $category->filterableAttributes; // Assign first
+
+        if ($filterableAttributes->isEmpty()) { // Check using isEmpty()
             $filterableAttributes = $this->attributeRepository->getFilterableAttributes();
         }
 
