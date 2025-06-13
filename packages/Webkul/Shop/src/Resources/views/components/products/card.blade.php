@@ -11,7 +11,7 @@
     >
         <!-- Grid Card -->
         <div
-            class="group relative"
+            class="group relative bg-zylver-white border border-zylver-border-grey rounded-lg overflow-hidden group-hover:shadow-lg transition-shadow duration-300"
             v-if="mode != 'list'"
         >
             <div class="relative overflow-hidden rounded-md bg-zylver-cream">
@@ -48,23 +48,23 @@
 
                 <!-- Badges -->
                 <div class="absolute top-3 left-3">
-                    <p class="rounded-full bg-zylver-gold px-3 py-1 text-xs font-medium text-zylver-olive-green" v-if="product.on_sale">
+                    <p class="rounded-md bg-zylver-gold px-2.5 py-1 text-xs font-medium text-zylver-olive-green" v-if="product.on_sale">
                         @lang('shop::app.components.products.card.sale')
                     </p>
-                    <p class="rounded-full bg-zylver-olive-green px-3 py-1 text-xs font-medium text-zylver-cream" v-else-if="product.is_new">
+                    <p class="rounded-md bg-zylver-olive-green px-2.5 py-1 text-xs font-medium text-zylver-cream" v-else-if="product.is_new">
                         @lang('shop::app.components.products.card.new')
                     </p>
                 </div>
             </div>
 
             <!-- Product Information Section -->
-            <div class="mt-4 text-center">
+            <div class="px-4 pt-4 pb-6 text-left">
                 {!! view_render_event('bagisto.shop.components.products.card.name.before') !!}
 
                 <a
                     :href="`{{ route('shop.product_or_category.index', '') }}/${product.url_key}`"
                     :aria-label="product.name"
-                    class="block font-lato text-base text-zylver-olive-green hover:text-zylver-gold"
+                    class="block font-lato text-base text-zylver-olive-green hover:text-zylver-gold transition-colors duration-200 truncate"
                 >
                     @{{ product.name }}
                 </a>
@@ -74,7 +74,7 @@
                 {!! view_render_event('bagisto.shop.components.products.card.price.before') !!}
 
                 <div
-                    class="mt-1 font-lato text-lg font-semibold text-zylver-olive-green"
+                    class="mt-2 font-lato text-lg font-semibold text-zylver-olive-green"
                     v-html="product.price_html"
                 >
                 </div>
@@ -85,7 +85,7 @@
                 <div class="mt-2 opacity-0 transition-opacity group-hover:opacity-100">
                     <button
                         type="button"
-                        class="font-lato text-sm text-zylver-olive-green/80 hover:text-zylver-gold"
+                        class="font-lato text-sm text-zylver-olive-green/80 hover:text-zylver-gold transition-colors duration-200"
                         @click="openQuickView()"
                     >
                         Quick View
