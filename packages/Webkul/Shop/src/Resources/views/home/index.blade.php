@@ -36,7 +36,7 @@
         <p class="font-lato text-lg lg:text-xl text-zylver-light-gold mb-10 max-w-2xl mx-auto">
             Discover exquisite silver jewellery, crafted with passion and precision for the discerning eye.
         </p>
-        <a href="{{ route('shop.shop.index') }}" class="secondary-button"> <!-- Link to all products / shop page -->
+        <a href="{{ route('shop.home.index') }}" class="secondary-button"> <!-- Link to all products / shop page -->
             Explore Collections
         </a>
     </div>
@@ -44,12 +44,12 @@
 <!-- End ZYLVER.IN Custom Hero Section -->
 
     <!-- ZYLVER.IN Brand Storytelling Section -->
-    <x-shop::components.home.brand-story/>
+    @include('shop::components.home.brand-story')
     <!-- End ZYLVER.IN Brand Storytelling Section -->
 
 
     <!-- ZYLVER.IN Featured Collections Section -->
-    <x-shop::components.home.featured-collections/>
+    @include('shop::components.home.featured-collections')
     <!-- End ZYLVER.IN Featured Collections Section -->
 
 

@@ -37,7 +37,7 @@
                 <p class="font-lato text-base lg:text-lg text-zylver-text-primary leading-relaxed mb-8">
                     At ZYLVER, we believe in the alchemy of pure silver and masterful skill. Our artisans pour their passion into every curve and contour, creating not just adornments, but heirlooms that will illuminate your moments for generations to come.
                 </p>
-                <a href="{{ route('shop.shop.index') }}" class="inline-block bg-zylver-olive-green text-zylver-white font-lato py-3 px-8 rounded hover:bg-zylver-gold hover:text-zylver-olive-green transition-colors duration-300">
+                <a href="{{ route('shop.home.index') }}" class="inline-block bg-zylver-olive-green text-zylver-white font-lato py-3 px-8 rounded hover:bg-zylver-gold hover:text-zylver-olive-green transition-colors duration-300">
                     Discover Our Collections
                 </a>
             </div>

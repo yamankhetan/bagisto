@@ -7,7 +7,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Featured Item 1: Rings -->
-            <a href="#" class="block group">
+            <a href="{{ route('shop.home.index') }}" class="block group">
                 <div class="bg-zylver-white border border-zylver-border-grey rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
                     <div class="aspect-[4/3] bg-zylver-light-gold flex items-center justify-center">
                         <p class="font-lato text-zylver-olive-green">Image (Rings)</p>
@@ -24,7 +24,7 @@
             </a>
 
             <!-- Featured Item 2: Necklaces -->
-            <a href="#" class="block group">
+            <a href="{{ route('shop.home.index') }}" class="block group">
                 <div class="bg-zylver-white border border-zylver-border-grey rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
                     <div class="aspect-[4/3] bg-zylver-light-gold flex items-center justify-center">
                         <p class="font-lato text-zylver-olive-green">Image (Necklaces)</p>
@@ -41,7 +41,7 @@
             </a>
 
             <!-- Featured Item 3: Earrings -->
-            <a href="#" class="block group">
+            <a href="{{ route('shop.home.index') }}" class="block group">
                 <div class="bg-zylver-white border border-zylver-border-grey rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
                     <div class="aspect-[4/3] bg-zylver-light-gold flex items-center justify-center">
                         <p class="font-lato text-zylver-olive-green">Image (Earrings)</p>
